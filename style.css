@@ -20,13 +20,13 @@ body {
     margin: 0;
 }
 
-.left {
+.colored {
     background-image: url(./images/bg-main-desktop.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.right {
+.white {
     display: grid;
     text-transform: uppercase;
     font-size: 1rem;
@@ -158,8 +158,17 @@ input[type="submit"]:hover {
     margin-right: 10%;
 }
 
+footer{
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+    z-index: 55;
+    font-size: min(3vw,1rem);
+}
 
 /* Media queries */
+
+/* Tablet and mobile view */
 
 @media screen and (max-width: 790px) {
 
@@ -171,18 +180,18 @@ input[type="submit"]:hover {
         margin: 0;
     }
 
-    .left {
+    .colored {
         background-image: url('./images/bg-main-mobile.png');
     }
 
-    .right {
+    .white {
         display: grid;
         text-transform: uppercase;
         font-size: 1rem;
         justify-content: center;
-        align-items: flex-end;
-        margin-bottom: 10vh;
+        align-items: center;
         position: static;
+        margin-bottom: 2vh;
     }
 
     /* Positioning */
@@ -197,17 +206,25 @@ input[type="submit"]:hover {
 
     /* cards positioning and styling */
 
+    .cards{
+        position: fixed;
+        width: 380px;
+        height: 262px;
+        top: max(10px,calc(100vh / 3 - 190px));
+        left: calc(50vw - 190px);
+    }
+
     /* card front */
     .card-front {
-        width: 50vw;
-        height: 25vw;
-        top: calc(3vh + 15.5vw);
-        left: 10vw;
+        width: 300px;
+        height: 150px;
+        top: 92px;
+        left: 0;
         z-index: 1;
+        position: absolute;
     }
+
     #number {
-        grid-row: 3 / span 1;
-        grid-column: 1 / span 3;
         font-size: 1rem;
     }
 
@@ -215,40 +232,72 @@ input[type="submit"]:hover {
 
     /* Card back */
     .card-back {
-        background-image: url('./images/bg-card-back.png');
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: fixed;
-        width: 50vw;
-        height: 25vw;
-        border-radius: 10px;
-        color: white;
-        top: 3vh;
-        left: 30vw;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        top: 0;
+        left: 80px;
     }
 
     #card-cvc {
-        margin-right: 10%;
+        margin-top: 30px;
+    }
+
+    footer{
+        left: 0;
     }
 }
 
-@media screen and (max-width: 380px) {
-    html {
-        font-size: 16px;
+@media screen and (max-width: 420px) {
+
+    html{
+        font-size: 15px;
     }
 
-    /* Positioning */
+    /* cards positioning and styling */
 
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+    .cards{
+        position: absolute;
         width: 300px;
-        max-width: 405px;
-        position: static;
-        right: auto;
+        height: 222px;
+        top: calc(100vh / 3 - 150px);
+        left: calc(50vw - 150px);
+    }
+    /* card front */
+    .card-front {
+        width: 220px;
+        height: 110px;
+        top: 70px;
+    }
+
+    /* end card front */
+
+    /* Card back */
+    .card-back {
+        position: absolute;
+        width: 220px;
+        height: 110px;
+        top: 0;
+        left: 80px;
+    }
+
+    #card-cvc {
+        margin-top: 29px;
+    }
+}
+
+@media screen and (min-width:420px) and (max-width: 790px) and (max-height: 750px){
+
+    .white{
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .cards{
+        position: absolute;
+        width: 300px;
+        height: 222px;
+        top: calc(100vh / 3 - 220px);
+        left: calc(50vw - 180px);
     }
 }
