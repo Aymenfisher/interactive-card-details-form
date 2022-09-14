@@ -52,23 +52,29 @@ form {
     gap: 10px;
 }
 
-.date-cvc {
-    display: grid;
+/* expiration date and cvc number positioning */
+
+.exp-cvc-inputs, .exp-cvc-labels{
+    display: inline-grid;
     grid-template: 1fr / 48% 48%;
-    justify-content: space-between;
+    gap:4%;
 }
 
-.expiration {
+.exp-inputs{
     display: grid;
     grid-template: 1fr / 48% 48%;
-    justify-content: space-between;
+    column-gap: 10px;
+}
+.cvc-input{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 /* styling buttons and inputs */
 input {
     height: 40px;
     border: 1px solid rgb(187, 187, 187);
-    border-radius: 5px;
+    border-radius: 8px;
     font-family: var(--font-family);
     padding-left: 10px;
 }
@@ -87,6 +93,13 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     cursor: pointer;
+}
+
+.error-message{
+    font-size: 10px;
+    color: red;
+    padding: 0;
+    margin: 0;
 }
 
 /* cards positioning and styling */
@@ -120,19 +133,23 @@ input[type="submit"]:hover {
 #number {
     grid-row: 3 / span 1;
     grid-column: 1 / span 3;
-    font-size: 2vw;
+    font-size: max(2vw,1rem);
 }
 
 #card-name {
     grid-row: 4 / span 1;
-    grid-column: 1 / span 1;
-    margin: 0 auto;
+    grid-column: 1 / span 2;
+    justify-self: start;
+    margin: 0;
+    padding-left: 20px;
+    font-size: max(.6rem , 12px);
 }
 
 #card-date {
     grid-row: 4 / span 1;
     grid-column: 3 / span 1;
     margin: 0 auto;
+    font-size: max(.6rem , 12px);
 }
 
 /* end card front */
@@ -166,6 +183,50 @@ footer{
     font-size: min(3vw,1rem);
 }
 
+
+
+/* Thank you page */
+.thanks{
+    width: max(340px, 35vw);
+    max-width: 405px;
+    max-height: 70%;
+    display: grid;
+    grid-template: 1fr 2fr 1fr / 1fr;
+    text-align: center;
+}
+
+.thanks-msg{
+    align-self: center;
+}
+
+.thanks-msg h2 {
+    letter-spacing: 2px;
+    color: hsl(278, 68%, 11%);
+}
+
+.thanks-msg p {
+    text-transform: none;
+    color:hsl(279, 6%, 55%);
+}
+.thanks #icon-complete{
+    justify-self: center;
+}
+
+.thanks #continue-btn{
+    background-color: rgba(34, 9, 48, 255);
+    color: white;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    font-family: var(--font-family);
+}
+.thanks #continue-btn:hover{
+    cursor: pointer;
+}
+
+/* end thanks message */
+
 /* Media queries */
 
 /* Tablet and mobile view */
@@ -198,7 +259,7 @@ footer{
     form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 5px;
         width: max(340px, 70vw);
         position: static;
         right: auto;
@@ -226,6 +287,10 @@ footer{
 
     #number {
         font-size: 1rem;
+    }
+
+    #card-name, #card-date{
+        font-size: 10px;
     }
 
     /* end card front */
