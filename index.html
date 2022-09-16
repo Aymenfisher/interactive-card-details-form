@@ -57,7 +57,7 @@
 
         <div class="form-field">
           <label for="card-number">card number</label>
-          <input type="text" name="card-number" id="card-number" maxlength="19" placeholder="e.g 1234 5678 9123 0000" >
+          <input type="text" name="card-number" id="card-number" maxlength="16" placeholder="e.g 1234 5678 9123 0000" >
           <span class="error-message" id="card-number-msg"></span>
         </div>
 
@@ -68,8 +68,8 @@
             </div>
             <div class="exp-cvc-inputs">
               <div class="exp-inputs">
-                <input type="number" name="month" id="expiration-month" placeholder="MM" min="0" max="12" maxlength="2" >
-                <input type="number" name="year" id="expiration-year" placeholder="YYYY" min="0" maxlength="4" >
+                <input type="number" name="month" id="expiration-month" placeholder="MM"  max="12" maxlength="2" >
+                <input type="number" name="year" id="expiration-year" placeholder="YYYY"  maxlength="4" >
                 <span class="error-message" id="expiration-month-msg"></span>
                 <span class="error-message" id="expiration-year-msg"></span>
               </div>
@@ -84,19 +84,19 @@
         <div class="form-field">
           <input type="submit" value="Confirm">
         </div>
+      </form>
+      
+      <footer>
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+          Coded by <a href="https://github.com/Aymenfisher">Aymen Boudabia</a>.
+        </div>
+      </footer>
 
-    </form>
   </div>
   </div>
-
-
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="https://github.com/Aymenfisher">Aymen Boudabia</a>.
-    </div>
-  </footer>
 </body>
+
 
 <script src="./main.js" defer></script>
 

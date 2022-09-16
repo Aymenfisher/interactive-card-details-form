@@ -41,17 +41,14 @@ let cardNumberTarget = document.getElementById('number');
 // defining pattern and restrictions on Card number:
 
 // pattern for user experience
-cardNumber.addEventListener('keypress', (e) => {
-    if (e.target.value.length < e.target.maxLength) {
-        if (e.target.value.length > 1 && e.target.value.replaceAll(' ', '').length % 4 == 0) {
-            e.target.value += ' ';
-        }
+cardNumber.addEventListener('input', (e) => {
+    if(e.target.value.length == 0){
+        cardNumberTarget.innerText = '0000 0000 0000 0000'
     }
+    cardNumberTarget.innerText = e.target.value.match(/.{1,4}/g).join(' ');
 }
 )
 
-
-preview(cardNumber, cardNumberTarget);
 //////////////////////////////////////////////////
 
 
@@ -179,6 +176,9 @@ function formValidation(e) {
     // expiration year validation: no empty space
     if (expYear.value.length == 0) {
         showError(expYear, expYearSpan, 'Can\'t be blank');
+    }
+    else if (checkMaxLength(expYear)) {
+        showError(expYear, expYearSpan, 'Thats too old buddy!');
     }
     else {
         hideError(expYear, expYearSpan);
